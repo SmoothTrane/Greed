@@ -1,4 +1,19 @@
  class Grid
+
+  def initialize
+    @array = [ [4,5,6,1,3], [1,8,3,9,4,2], [1,2,1,2,1,2] ]
+    rand = Random.new
+    # for the first val, 0 to @array.length
+    # second val is 0 to @array[val].length
+
+
+  end 
+
+  def display_grid
+    p @array
+  end
+
+
   def move(dir)
     dir = direction.downcase
     if dir == "n" || dir == "north"
