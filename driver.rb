@@ -1,4 +1,4 @@
-require_relative "client.rb"
-def main
-	@game = Grid.new
-end
+require_relative "game.rb"
+
+  game = Game.new
+  game.call

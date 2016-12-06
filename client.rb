@@ -1,8 +1,12 @@
- class Grid
+class Grid
 
   def initialize
     @array = [ [4,5,6,1,3], [1,8,3,9,4,2], [1,2,1,2,1,2] ]
     rand = Random.new
+    firstIndex = rand.rand(0..@array.length - 1)
+    secondIndex = rand.rand(0..@array[firstIndex].length - 1)
+    @array[firstIndex][secondIndex] = "@"
+    display_grid
     # for the first val, 0 to @array.length
     # second val is 0 to @array[val].length
 
@@ -10,12 +14,13 @@
   end 
 
   def display_grid
+    p "Here is your grid, you must move the @ symbol across the map in order to make it the last element"
     p @array
   end
 
 
   def move(dir)
-    dir = direction.downcase
+    dir = dir.downcase
     if dir == "n" || dir == "north"
       @array.each_index do |i|
         j = @array[i].index '@';
@@ -31,13 +36,14 @@
         if i == num - 1
           @array[@val][@secondVal] = "@"
         end
-        if i == @array.length -1 
+        if i == @array.length - 1 
           puts 'done'
           break;
         end
+        p @array
       end
       
-    elseif dir == "e" || dir == "east"
+    elsif dir == "e" || dir == "east"
       @array.each_index do |i|
         j = @array[i].index '@';
         if j
@@ -55,8 +61,9 @@
           puts 't'
           break;
         end
+        p @array
       end
-    elseif dir == "s" || dir == "south"
+    elsif dir == "s" || dir == "south"
       @array.each_index do |i|
         j = @array[i].index '@';
         if j
@@ -75,8 +82,9 @@
           puts 'done'
           break
         end
+        p @array
       end
-    elseif dir == "w" || dir == "west"
+    elsif dir == "w" || dir == "west"
       @array.each_index do |i|
         j = @array[i].index '@';
         if j
@@ -92,9 +100,14 @@
           puts 'done'
           break
         end
+        p @array
       end
     else 
       puts 'Please enter North South East or West'
     end
   end
+
+
+
+
 end

@@ -2,8 +2,10 @@ class Game
 
 
 	require_relative "client.rb"
-	@grid = Grid.new
-	def new 
+	
+	def call
+	  @grid = Grid.new
+	  
 		puts 'Hello, how are you? Let\'s play Grid!'
 		play
 	end
@@ -15,7 +17,7 @@ class Game
 
 	def play
 		userInput = nil
-		until userInput === "q"
+		until userInput == "q"
 			userInput = nil
 			until userInput === "n" || userInput === "e" || userInput === "s" || userInput === "w"
 				puts "Select if you want to go North South East or West"
@@ -28,12 +30,16 @@ class Game
 			when "e"
 				@grid.move("e")
 			when "s"
-				grid.move("s")
+				@grid.move("s")
 			when "w"
-				grid.move("w")
+				@grid.move("w")
+			when "q"
+				break
+			end
 			end
 		end
 	end
+
 
 
 
