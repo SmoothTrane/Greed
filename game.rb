@@ -36,7 +36,6 @@ class Game
 			when "q"
 				break
 			end
-			end
 		end
 	end
 
